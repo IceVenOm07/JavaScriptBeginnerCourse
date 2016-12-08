@@ -113,11 +113,11 @@ function generateBroadcastAndNetworsAddresses(ip, mask){
         NetworkAdress[i] = IpAdress[i] & MaskArr[i];
         BroadcastAdress[i] = NetworkAdress[i];
     }
-    BroadcastAdress[3] += numSubnetAdr - 1;
-    BroadcastAdress = BroadcastAdress.join('.');
+    Broadcast[3] += numSubnetAdr - 1;
+    Broadcast = Broadcast.join('.');
     NetworkAdress = NetworkAdress.join('.');
     var resultValues ={
-        'BroadcastAdress' : BroadcastAdress,
+        'Broadcast' : Broadcast,
         'NetworkAdress' : NetworkAdress
     };
     return resultValues;
@@ -130,7 +130,7 @@ console.log(generateBroadcastAndNetworsAddresses(IpAddress, subnetMask)); // Bro
 // P. S. 1 == '1' (строковое и числовое представление number'ов считать идентичными)
 
 var totalMessArray = [['a', 1, true], [true, 99, 'aa', undefined], ['1']];
-function addition(arrays){
+function makeItClean(arrays){
     var totalArray = [];
     var qq = false;
     var dd = true;
@@ -156,5 +156,5 @@ function addition(arrays){
     }
     return totalArray;
 }
-console.log(addition(totalMessArray)); // --> ['a', 'aa', 1, undefined, true];
+console.log(makeItClean(totalMessArray)); // --> ['a', 'aa', 1, undefined, true];
 										// тут опечатка в примере вывода, нету числа 99
